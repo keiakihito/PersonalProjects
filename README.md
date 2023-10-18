@@ -1,5 +1,5 @@
-# DataStructureAndAlgorithm 
-Cal Poly Pomona Data Structure and Algorithm Class projects
+# Personal Projects samples
+These projects are my sample project list, mainly coming from Cal Poly Pomona Computer Science course material
 
 # Data Structure (CS2400)
  - **Project 1** - Bag, which is a duplicated random order element list. Implementing three different methods using a Resizeable array list and linked list.
