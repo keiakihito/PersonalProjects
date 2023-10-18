@@ -18,6 +18,6 @@ These projects are my sample project list, mainly coming from Cal Poly Pomona Co
  <br><br>Deriving each method's time complexity mathematically, getting the average execution time to make a plot, and analyzing and comparing the theoretical aspect and practical execution time. 
 
 # C++SampleProjects
-- **2D_Pointer_and_plane** - The project demonstrates the application of a 2D pointer for sheet availability of airplane and computer lab sheets.
+- **2D_Pointer_lab_and_plane** - The project demonstrates the application of a 2D pointer for sheet availability of airplane and computer lab sheets.
 
 - **DataStracture** - Manual implementation of linked list, Stack, and Queue
