@@ -1,0 +1,9 @@
+# ninja log v5
+3	686	1664944455739566582	CMakeFiles/basic_test.dir/includes/plane/plane.cpp.o	25a6f5f4e254a5da
+2	814	1664944455873432235	CMakeFiles/basic_test.dir/includes/lab/lab.cpp.o	f9e20917a3c8ecb6
+3	781	1664944455840251672	CMakeFiles/basic_test.dir/includes/stub/stub.cpp.o	537eb9d6e4c46868
+3	605	1664948260792152400	CMakeFiles/basic_test.dir/_tests/_test_files/basic_test.cpp.o	8177c6c5f33e3112
+4	451	1664948260638255916	CMakeFiles/basic_test.dir/includes/two_d_functions/two_d_functions.cpp.o	1b482303e8bd4b29
+4	1987	1664944457043853147	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o	d365d89f13045cc5
+1987	2018	1664944457081193000	lib/libgtestd.a	7706077ce2016ed7
+605	659	1664948260848082776	bin/basic_test	7612b2430f9e40f0
