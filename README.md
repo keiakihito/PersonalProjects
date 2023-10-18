@@ -12,9 +12,9 @@ These projects are my sample project list, mainly coming from Cal Poly Pomona Co
 
 # Algorighm (CS3100)
  - **Project 1** - Matrix Multiplication. Implementing three different matrix multiplication methods<br> 
-    * 1.Classiacal matrix multiplication
-    * 2.Divide and Conquer matrix multiplication
-    * 3.Strassen matrix multiplication
+    * 1. Classiacal matrix multiplication
+    * 2. Divide and Conquer matrix multiplication
+    * 3. Strassen matrix multiplication
  <br><br>Deriving each method's time complexity mathematically, getting the average execution time to make a plot, and analyzing and comparing the theoretical aspect and practical execution time. 
 
 # C++SampleProjects
