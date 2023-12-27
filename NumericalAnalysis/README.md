@@ -1,5 +1,5 @@
 # Numerical Analysis (MTA 4010)
-## Abstract**  
+## Abstract
 <br><br>
 
   The project considers an n by n symmetric square matrix A and seeks an eigenvalue 𝜆 ∈ 𝑅 and eigenvector $𝑣 ∈ 𝑅^{n}$ pair which satisfies Av = 𝜆v. This is only n nonlinear equations for n+1 unknown v where 𝜆 and all n components in v. To make the eigenvector unique, we will
