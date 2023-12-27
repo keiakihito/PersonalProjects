@@ -1,7 +1,7 @@
 # Personal Projects samples
 These projects are my sample project list, mainly coming from Cal Poly Pomona Computer Science course material
 
-# Numerical Analysis (MTA 4010)
+## Numerical Analysis (MTA 4010)
 [Abstract](https://github.com/keiakihito/PersonalProjects/blob/main/NumericalAnalysis/README.md)
  - **Final Project** - Comparing Numerical methods and algorithms with finding eigenpairs or solving Ax = b in terms of large-size Numerical Linear Algebra<br> 
     * 1. Mathematical derivation
@@ -9,7 +9,8 @@ These projects are my sample project list, mainly coming from Cal Poly Pomona Co
     * 3. Residual analysis
  <br><br>Considering each algorithm's mathematical background, investigating a total of 3 experiments.
 
-# Algorighm (CS3100)
+## Algorighm (CS3100)
+[Abstract](https://github.com/keiakihito/PersonalProjects/tree/main/Algorighm)
  - **Project 1** - Matrix Multiplication. Implementing three different matrix multiplication methods for analysis<br> 
     * 1. Classiacal matrix multiplication
     * 2. Divide and Conquer matrix multiplication
@@ -22,7 +23,7 @@ These projects are my sample project list, mainly coming from Cal Poly Pomona Co
     * 3. Median of Medians
  <br><br>Constructing each algorithm's time complexity, getting the average execution time to make a plot, and analyzing and comparing the theoretical aspect and practical execution time. 
 
-# Data Structure (CS2400)
+## Data Structure (CS2400)
  - **Project 1** - Bag, which is a duplicated random order element list. Implementing three different methods using a Resizeable array list and linked list.
 
  - **Project 2** - Stack application. Implementing convert to postfix method and evaluating postfix evaluation method using a Resizeable array list and linked list.
