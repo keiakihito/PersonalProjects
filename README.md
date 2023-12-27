@@ -2,6 +2,7 @@
 These projects are my sample project list, mainly coming from Cal Poly Pomona Computer Science course material
 
 # Numerical Analysis (MTA 4010)
+[Abstract](https://github.com/keiakihito/PersonalProjects/blob/main/NumericalAnalysis/README.md)
  - **Final Project** - Comparing Numerical methods and algorithms with finding eigenpairs or solving Ax = b in terms of large-size Numerical Linear Algebra<br> 
     * 1. Mathematical derivation
     * 2. Execution time analysis
