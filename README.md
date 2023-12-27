@@ -24,6 +24,7 @@ These projects are my sample project list, mainly coming from Cal Poly Pomona Co
  <br><br>Constructing each algorithm's time complexity, getting the average execution time to make a plot, and analyzing and comparing the theoretical aspect and practical execution time. 
 
 ## Data Structure (CS2400)
+[Implementaion details](https://github.com/keiakihito/PersonalProjects/tree/main/DataStructure)
  - **Project 1** - Bag, which is a duplicated random order element list. Implementing three different methods using a Resizeable array list and linked list.
 
  - **Project 2** - Stack application. Implementing convert to postfix method and evaluating postfix evaluation method using a Resizeable array list and linked list.
@@ -34,6 +35,7 @@ These projects are my sample project list, mainly coming from Cal Poly Pomona Co
 
 
 # C++SampleProjects
+[Implementaion details](https://github.com/keiakihito/PersonalProjects/tree/main/C%2B%2BSampleProjects)
 - **2D_Pointer_lab_and_plane** - The project demonstrates the application of a 2D pointer for the availability of airplane and computer lab sheets.
 
 - **DataStracture** - Manual implementation of linked list, Stack, and Queue
