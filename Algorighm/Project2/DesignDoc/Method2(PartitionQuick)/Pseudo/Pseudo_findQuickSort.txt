@@ -1,0 +1,63 @@
+//The method accepts the array and the k th smallest index value
+// int findQuickSort (int[]arr, int userIdx, int fstIdx, int lstIdx)
+Set realIdx as userIdx - 1 // ex user wants to know 3 rd smallest, the array index should be array[2]
+Get pivot index // Call pivot partition, Method A 
+Check the pivot index equals realIdx
+	if yes
+		return array value in the pivot index // arr[pivotIdx]
+	else if (pivot index > realIdx)
+		Call recursively findQuickSort with userIdx, first index, and pivot - 1
+	else // (pivot index < realIdx)
+		Call recursively findQuickSort with userIdx, pivot
+
+
+//MethodA
+//int pivotPartition(int[] arr, int fstIdx, int lstIdx)
+Check fist index and the last index are the same index,
+	if the difference is 0, return the frst index
+Pick the first, mid, last index element in the array
+Find the midlle value // Call sort3Elem Method B 
+Set the smallest value in the first index of the array
+Set the largest value in the last index of the array
+Set pivot value with middle value index in the array
+Set the pivot index as last index - 1 // The 2nd last index
+Call swap(arr, arr[mid], arr[pivotIdx]) // Method C
+
+Set the left walker // It iterates the array from left to right until it meets the right walker
+Set the right walker // It iterates the array from the right to left until it meets the left walker
+Set outer loop as long as left walker < right walker
+	Set the first inner loop where the left walker check the value 
+		Check the current value: array[l_wk] < pivot // Need to swap the same value with the pivot condition, <
+			if yes, increment l_wk // l_wk found more than pivot value and it needs to be swap
+	Set the second inner loop where the right walker check the value 
+		Check the current value: array[r_wk] >= pivot // Skip the same value with the pivot, condition, >=
+			if yes, incement r_wk // r_wk found less than pivot value and it needs to be swap
+	Check the l_wk	<= r_wk 
+		if yes, call swap(arr, l_wk, r_wk)
+		incement l_wk and r_wk
+Call Swap (arr, array[l_wk], array[lstIdx - 1]) // It means the pivot valuse makes partition 
+																			// All the left elements from the pivot are lower than the pivot, 
+																			//All the right elements from the pivot are bigger than the pivot.
+
+
+//Method B
+// The method picks the first , middle, and last index elemtns
+// It sorts these three elemnts and returns the middle element index
+//int sort3Elem(int[] arr, int fstIdx, int midIdx, int lstIdx)
+Check arr[midIdx] < arr[fstIdx]
+	If yes, call swap(arr, arr[midIdx], arr[fstIdx]) 
+Check arr[lstIdx] < arr[midIdx]
+	If yes, call swap(arr, arr[lstIdx], arr[midIdx]) 
+Check arr[midIdx] < arr[fstIdx]
+	If yes, call swap(arr, arr[midIdx], arr[fstIdx]) 
+return midIdx
+
+
+
+//Method C
+//The method swaps the two values in the array
+void swap(int arr[], int fstIdx, int scndIdx)
+Create temparay int variable
+Store temp <- arr[fstIdx]
+Store arr[fstIdx] <- arr[scndIdx]
+Store arr[scndIdx] <- temp

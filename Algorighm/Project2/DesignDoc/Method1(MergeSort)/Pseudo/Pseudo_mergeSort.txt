@@ -1,0 +1,80 @@
+//int findMergeSort(int[] arr, int position)
+Check the index is valid
+Sort the array mergeSort //Method A
+Find the element in the sorted array
+Rturn the element
+
+
+//Method A
+//void mergeSort(int[] arr)
+Accept the array
+Call myMerge with the original array, the first index, and the last index // Method B
+Assign the the array address to the myMerge result
+Return the original array
+
+//Mehod B
+//int[] myMerge(int[] arr, int fstIdx, int lstIdx)
+Accet the original array
+Check the array size
+	//Base case
+	if the array size is 1
+		Return the original array
+	else 
+		Calculate the mid index as  first index+ (lstIdx - first)) / 2
+		Call leftChop // Mehod C
+		Copy the left half of the array
+		Call rightChop // Method D
+		Copy the right half of the array
+
+		Call myMerge recursively with left half array, the first index, and mid index
+		Sort left half as a sortLeft
+		Call myMeger recursively with right half array, the mid+1 index, and right index
+		Sort right half as a sortRight
+
+		Call combineSorts with the original array, sortLeft, and sortRight // Mehod E
+		Sort the original array
+		Return the original array
+
+
+//Method C
+//int[] leftChop(int[] arr, int fstIdx, int lstIdx)
+Calculate mid index as (the first index + last index) /2
+Create a new array with size of (mid - the first index)
+Set loop where walker iterates  the original array from the first index to the mid index
+	Copy the original array element to the new array
+return the new array
+
+
+//Method D
+//int[] rightChop(int[] arr, int fstIdx, int lstIdx)
+Calculate mid index as (the first index + last index) /2
+Create a new array with size of (right - mid +1)
+Set loop where walker iterates  the original array from the mid +1 to the right index
+	Copy the original array element to the new array
+return the new array
+
+
+//Mehod E
+//int[] combineSorts(int[] arr, int[] lSort, int[]rSort)
+//Let lSort is a left sorted array, rSort is a right sorted array
+Initialize walkers
+Let a_wk is arr walker
+Let l_wk is lSort walker
+Let r_wk is arr walker
+
+Set loop as long as l_wk < the size of lSort and r_wk < the size of rSort
+	Compaire the element of lSort and rSort
+	Decide a smaller element
+	Increment bigger array's walker l_wk or r_wk
+	Store it to the current array index
+	Increment the array index
+
+Check if the lSort has left over element
+	Store left over to the original array
+
+Check if the rSort has left over element 
+	Store left over to the original array
+
+Return the original array 
+
+	

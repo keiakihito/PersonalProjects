@@ -1,0 +1,75 @@
+// Select2 finds the median of medians until the value equals to user input (kth smallest)
+// The Pseudo code sets denominator == 3 to find median of medians
+1. Accept Array, number of elements, and kth smallest index 
+2. Base case 
+		if the number of elements is less than denominator
+			Sort the array
+			Return kth element in the array
+3. Devide array as a number of sub arrays // Call method A, makeMdnsArr
+4. Make medianArray with the methodA
+5. Find median of medians (MM) in the medianArray // Recursive call the Select2
+6. Find pivot position of the MM in the original Array // Call method B, Partition
+7. Check the pivot position and kth smallest index
+		if pivot position == kth smallest index
+			Return pivot position elements in the original array
+		else if k < pivot position
+			Make a copy of half array from the first index to the pivot index - 1 // Call method C, Split Half
+			Return Select2 (newHalf array, the number of array size, kth smallest index)
+		else // The case of pivot position < k
+			Make a copy of half array from the pivot position + 1 to the last index of the array
+			Return Select2 (newHalf array, the size of the original array - pivot position, kth smallest - pivot position)
+
+//Method A, makeMdnsArr
+//Param int[] array
+//Return int[] mdnsArr 
+1. Accept array
+2. Set denominator of the sub array // this case is 3
+3. Create medArray with the size of original array size / denominator
+4. Find medians
+ 	Set loop where the walker iterates the original array from the first index to the last number of mdnsArr
+		Set lftIdx  = walker * denominator
+		Set medIdx = lftIdx + 1;
+		Set rghtIdx =  medIdx + 1;
+		Set medArray [walker] = sort3Elem(arr, lftIdx, medIdx, rghtIdx) // Call mdethod D, Sort3Elem
+		Loop until the last index of medArray
+5.Return mdnsArr
+
+// Method B, Partition
+//Param int[]arr, int pivot value
+//Return int pivot index
+1. Find pivot value index in the original array // Call method E, findPivotIdx
+2. Swap pivot index value and last index value in the array
+3. Set loop where the walker iterates array from the first index to the 2nd last index
+		Set bck_wk and fnt_wk
+		Check the array value in the bck_wk < pivot value
+			if it is true
+				swap array[bck_wk] and array[fnt_wk] // Call method F, swap
+				increment bck_wk
+			else
+				continue
+4. Swap bck_wk index value and last index value in the array 
+5. Return bck_wk index // bck_wk points the index of pivot value in the array
+
+// Method C, Split splitHalf
+Calling from the algorithm 1
+
+// Method D, sort3Elem
+Calling from the algorithm 2
+
+// Method E, findPivotIdx
+//Param int[] array, int pivot value  
+// Return int pivot index
+1. Accept array
+2. Set pivot index = -1 // For the sake of assertion
+3. Check each element in the array until it finds the pivot value
+	Set loop where the walker iterates the array from the first index to the last index
+	Check the current walker index value equals to the pivot value
+		if it is true 
+			Return walker
+		else 
+			continue
+4. Assert if the pivot index is still -1, it must have it.
+
+// Method F, swap
+Calling from the algorithm 2
+
