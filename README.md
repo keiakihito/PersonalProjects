@@ -1,6 +1,6 @@
 # Personal Projects samples
 These projects are my sample project list, mainly coming from Cal Poly Pomona Computer Science course material
-
+<br><br>
 ## Numerical Analysis (MTA 4010)
 [Abstract](https://github.com/keiakihito/PersonalProjects/tree/main/NumericalAnalysis)
  - **Final Project** - Comparing Numerical methods and algorithms with finding eigenpairs or solving Ax = b in terms of large-size Numerical Linear Algebra<br> 
