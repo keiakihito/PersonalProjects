@@ -1,0 +1,100 @@
+NewtonsMethod
+public static double findLambda(RealMatrix matrixA, RealMatrix matrixX_knot)
+double[] newTonIterates = new ArrayList<double>();
+double[] newTonErrors = new ArrayList<double>();
+double[] newTonExctTimes = new ArrayList<double>();
+
+double[] newTonIteratesAve = new ArrayList<double>();
+double[] newTonExctTimesAve = new ArrayList<double>();
+
+// Loop growing matrix size unitl MAX
+    
+    // Loop 50 times
+    generate matrixA and matrixX_knot
+    Start Excute check
+    Excute newtonmethod // return (erros array) and iteration times
+    End Excute check
+
+    if(converge == true){
+        store result newTonExctTimes array
+        store iteration time to newTonIterates array
+    }
+    converge = false;
+
+calculate newTonExctTimes average
+store the result to newTonExctTimeAve
+initialize newTonExctTimes
+
+calculate newTonIterates average
+store the result to newTonIteratesAve
+initialize newTonIterates
+
+
+
+
+BroydenMethodWith Identity matrix
+public static double findLambdaWithI(RealMatrix matrixA, RealMatrix matrixX_knot)
+
+double[] broydenIdnMtxIterates = new ArrayList<double>();
+double[] broydenIdnMtxError = new ArrayList<double>();
+double[] broydenIdnExctTime = new ArrayList<double>();
+
+double[] broydenIdnMtxIteratesAve = new ArrayList<double>();
+double[] broydenIdnExctAve = new ArrayList<double>();
+
+// Loop growing matrix size unitl MAX
+    
+    // Loop 50 times
+    generate matrixA and matrixX_knot
+    Start Excute check
+    Excute broydenMethodWithI // return (erros array) and iteration times
+    End Excute check
+
+    if(converge == true){
+        store result broydenIdnExctTime array
+        store iteration time to broydenIdnMtxIterates array
+    }
+    converge = false;
+
+calculate broydenIdnMtxIterates average
+store the result to broydenIdnMtxIteratesAve
+initialize broydenIdnMtxIterates
+
+calculate broydenIdnExctTime average
+store the result to broydenIdnExctAve
+initialize broydenIdnExctTime
+
+
+
+
+BroydenMethodWith Jacobi
+public static double findLambdaWithJ(RealMatrix matrixA, RealMatrix matrixX_knot)
+double[] broydenJcbMtxIterates = new ArrayList<double>();
+double[] broydenJcbMtxError = new ArrayList<double>();
+double[] broydenJcbExctTime = new ArrayList<double>();
+
+double[] broydenJcbMtxIteratesAve = new ArrayList<double>();
+double[] broydenJcbExctAve = new ArrayList<double>();
+
+// Loop growing matrix size unitl MAX
+    
+    // Loop 50 times
+    generate matrixA and matrixX_knot
+    Start Excute check
+    Excute broydenMethodWithI // return (erros array) and iteration times
+    End Excute check
+
+    if(converge == true){
+        store result broydenIdnExctTime array
+        store iteration time to broydenIdnMtxIterates array
+    }
+    converge = false;
+
+
+calculate broydenIdnMtxIterates average
+store the result to broydenIdnMtxIteratesAve
+initialize broydenIdnMtxIterates
+
+calculate broydenIdnExctTime average
+store the result to broydenIdnExctAve
+initialize broydenIdnExctTime

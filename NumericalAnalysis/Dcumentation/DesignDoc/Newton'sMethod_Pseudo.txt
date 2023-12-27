@@ -1,0 +1,130 @@
+/*
+* Newton's method in system
+* The method accept real matrix and initial guess x knot.
+* Making a Jacobi and itrate until the lambda converges
+* @Param double [] martirxA, double matricV, double xknot
+* @Return double lambda
+*/
+1. Accept matrix // Call method A generate matric
+2. Accept matrixV
+3. Accept initial vector X // Call method B generateX_knot
+4. Make F(x) // Call method C constructF
+5. Make Jacobi // Call method D constructJacobi
+6. Calculate x(1) <- xnkot - Jacobi^(-1) * F(x)
+7. Set loop
+		Jacobi(X(i))*delta(i) = -F(X(i)) // Solve Ax = b, x is delta
+		X(i+1) = delta(i) + x(i) //Update X 
+		Check X(i+1) - X(i) < epsiron // Call Method E, checkEpsiron
+			if yes, exit loop
+8. Return lambda in xknot
+
+
+Mehod A
+/*
+* generateMatrices with SPD
+* @Param int size
+* @Return double matrix
+*/
+1. As I implemented
+
+
+
+Mehod B
+/*
+* generateX_kont with SPD
+* @Param int size, double lambda
+* @Return double matrix
+*/
+1. Make size + 1 martrix
+2. Add lambda to the matrix
+3. Return xknot
+
+
+
+Method C
+/*
+* constructF 
+* @Param double matrixA, double matrixX, double lambda
+* @Return double matrixF
+*/
+1. Create square matrixF with size of matrixA +1
+2. Fill up the first row to 2nd last row // Call method C_1 fillUpRow
+3. Fill up the last row // Call method C_2 fillUpLastRow
+4. Return matrixF
+
+Method C_1
+/*
+* fillUpRow, it fills up from the first row to the last row 
+* @Param double, matrixF, double matrixA, double matrixX, double lambda
+* @Return void
+*/
+1. Set outer loop where r_wk iterates in matrixF from the first index to the 2nd last index // Iterates top to bottom
+2.  	Create rowTotal
+3. 	Set inner loop where c_wk iterates matrixA the the first index to the 2nd last index // Iterates left to right
+4. 		c_wk access matrixA [r_wk][c_wk] and matrixX[c_wk]
+5. 		Store rowTotal += result
+6. 	Store rowTotal +=  - lambda * matrixV[r_wk] // the last term with lambda in F(X)
+7.  	Stor matrixF[r_wk] <- rowTotal
+7. Return matrixF
+
+Method C_2
+/*
+* fillUpLastRow, it fills up the last row
+* @Param double, matrixF, double matrixA, double matrixV
+* @Return void
+*/
+1. Set COEFFCIENT as -(1/2)
+2. Set loop where c_wk iterates matrixX from the first index to the 2nd last index
+3. 	Create rowTotal
+4. 	Store rowTotal += COEFFCIENT * matrixX[c_wk]^2
+5. Store rowTotal += 1 // the last term in F(X)
+6.	Store matrixF[last row][last column] <- 1 
+
+
+
+
+Method D
+/*
+* constructJacobi, constract Jacobi matrix with partial derivative
+* @Param double matrixA, double matrixV
+* @Return double matrixJ
+*/
+1. Create matrixJ with size of matirxA
+2. Call method D_1 fillUpRowJacobi
+3. Call method D_2 fillUpLastRowJacobi
+4. Return matrixJ
+
+Method D_1
+/*
+* fillUpRowJacobi, fill up values from the first row to the second last row for matrixJ
+* @Param double matrixF, double matrixV, lambda
+* @Return void
+*/
+1. Set outer loop where r_wk iterates the first index to the 2nd last index
+2. 	c_wk <- r_wk // Points to the diagonal index
+3.  	Store matrixJ[r_wk][c_wk] <- matirxF[r_wk][c_wk] - lambda // Set diagonal value
+4.  	Increment c_wk
+5.  	Set inner loop where c_wk iterates the next diagonal index to the 2nd last index
+6. 		Store matrixJ[r_wk][c_wk] <- matirxF[r_wk][c_wk] // Symmetric values
+7.  		Store matrixJ[c_wk][r_wk] <- matrixJ[r_wk][c_wk]  // Symmetric values
+8.  	Store	matrixJ[r_wk][last column] <- - matrixV[r_wk];
+
+Method D_2
+/*
+* fillUpLastRowJacobi, fill up values from the first row to the second last row for matrixJ
+* @Param double matrixF, double matrixV, lambda
+* @Return void
+*/
+1. Set loop where c_wk iterates from the first index to the 2nd last index
+2.  	Store matrixJ[last row][c_wk] <- - matrixV[c_wk]
+3. Store matrixJ[last row][last column] <- 0
+
+
+Stop condition
+/*
+* Check difference between previout lambda and current lambda is less than epsilon
+* @Param, double[] matrixX_i, double[] matrixX_i_pre
+* @Return boolean
+*/
+1. Check absolute value of ( matrixX_i[last] - matrixX_i_pre[last] ) < 10^-6
+2. Return result
