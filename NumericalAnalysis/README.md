@@ -13,4 +13,4 @@ The project verifies what I understand in this class and becomes a transition to
 
 [Implementation detailed in Java](https://github.com/keiakihito/PersonalProjects/tree/main/NumericalAnalysis/FinalProject/src)
 
-[Project reports](https://github.com/keiakihito/PersonalProjects/blob/main/NumericalAnalysis/Dcumentation/FinalProjectReport.pdf)
+[Project Report](https://github.com/keiakihito/PersonalProjects/blob/main/NumericalAnalysis/Dcumentation/FinalProjectReport.pdf)
