@@ -1,8 +1,7 @@
 # Operating Systems (CS 4310)
 ## Project  Abstract
+<br>Simulating Job Scheduler of the Operating Systems by programming the following four scheduling algorithms that we covered in the class:
 <br>
-Simulating Job Scheduler of the Operating Systems by programming the following four scheduling algorithms that we covered in the class:
-
 * First-Come-First-Serve (FCFS)
 * Shortest-Job-First (SJF)
 * Round-Robin with Time Slice = 2 (RR-2)
