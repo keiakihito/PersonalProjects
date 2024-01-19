@@ -10,6 +10,11 @@ These projects are my sample project list, mainly coming from Cal Poly Pomona Co
    - Residual analysis.
  <br><br>Considering each algorithm's mathematical background, investigating a total of 3 experiments.
 
+## Object Oriented Design (CS 3560)
+[Project  Details](https://github.com/keiakihito/PersonalProjects/tree/main/ObjectOrientedDesign)
+<br>Collaborating team environment to develop an imaginary small hospital sub-system. The team integrates the front end, back end, and database to implement the patient schedule system. As a database administrator, I participated in this team to help the database admin lead set up a database schema, and patients' and doctors' dummy data to pass back to the end team.
+<br><br>
+
 ## Operating System (CS 4310)
 [Abstract](https://github.com/keiakihito/PersonalProjects/tree/main/OperatingSystem)
  - **Project** - Simulating Job Scheduler of the Operating Systems by programming the following four scheduling algorithms that we covered in the class.<br> 
@@ -18,6 +23,7 @@ These projects are my sample project list, mainly coming from Cal Poly Pomona Co
    - Round-Robin with Time Slice = 2 (RR-2)
    - Round-Robin with Time Slice = 5 (PR-5)
  <br><br>The program displays four algorithms job processes in a table format and calculates the average turnover time(ATT). It compares the mean of ATT for each job group.
+
 
 ## Design and Analysis of Algorithms (CS 3100)
 [Abstract](https://github.com/keiakihito/PersonalProjects/tree/main/Algorighm)
