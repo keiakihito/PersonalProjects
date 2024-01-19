@@ -1,6 +1,6 @@
 # Operating Systems (CS 4310)
 ## Project  Abstract
-<br><br>
+<br>
 Simulating Job Scheduler of the Operating Systems by programming the following four scheduling algorithms that we covered in the class:
 
 * First-Come-First-Serve (FCFS)
@@ -17,4 +17,13 @@ The project generates multiple testing cases with inputs of 5 jobs, 10 jobs, and
 
 <br><br>
 
+## Term Paper
+<br> Proposal: 
+<br> 
+* Comparative Analysis of Process Scheduling Algorithms in Leading Operating Systems This paper investigates the distinct process scheduling algorithms implemented in major operating systems: Windows, macOS, Linux, and Android. Process scheduling is a fundamental aspect of operating systems to maximize CPU performance and efEiciency. The evolution of process scheduling algorithms is a response to changes in hardware and the diversifying operating system. 
 
+* This research aims to clarify how distinct process scheduling algorithms, such as preemptive multitasking, cooperative multitasking, and the Completely Fair Scheduler. Each scheduling algorithm has unique characteristics which represent a different approach to managing CPU resources and process execution to optimize CPU performance. The paper describes how they are adapted to each operating system and why these algorithms suit operating systems.
+
+* The research will mainly include authoritative books and technical journals to contextualize the topic. After completing this research project, students understand the importance of scheduling algorithms with hands-on experience from another programming project. This coordination of theoretical and practical elements encourages students to conduct more detailed research about designing future scheduling algorithms. Considering the current trend, the data sets have massively increased, known as big data. The schedule algorithms will need to handle enormous datasets efEiciently, ensuring that data processing tasks are managed effectively across potentially thousands of processors.
+
+[Full tech paper with reference page, MLA style format](https://github.com/keiakihito/PersonalProjects/blob/main/OperatingSystem/TermPaper/KatsumiTechpaper.pdf)
