@@ -1,6 +1,9 @@
 # Object Oriented Design (CS 3560)
 ## Project  Abstract
-<br>Collaborating team environment to develop an imaginary small hospital sub-system. The team integrates the front end, back end, and database to implement the patient schedule system. As a database administrator, I participated in this team to help the database admin lead set up a database schema, and patients' and doctors' dummy data to pass back to the end team.
+<br><br>
+ * The project aims to create an online appointment system where hospital patients can search for a doctor, see the doctor’s availability, and schedule an appointment through the web.We present several design figures and tables to detail our proposed system. 
+ * First we provide a Domain Class Diagram that presents the names and attributes of the object classes in the system and their multiplicity relationships. For example, the abstract Person class is the super class to the concrete Doctor and Patient classes. 
+ * The latter share an association class called Appointment that models the appointment record between a doctor and a patient. Next we provide details for the “Create Appointment” use case with an Activity Diagram and a System Sequence Diagram. Finally we provide links to our team’s organization page and repositories on GitHub. These figures and tables are as follows:
 <br><br>
 
 
