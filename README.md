@@ -10,7 +10,16 @@ These projects are my sample project list, mainly coming from Cal Poly Pomona Co
    - Residual analysis.
  <br><br>Considering each algorithm's mathematical background, investigating a total of 3 experiments.
 
-## Algorighm (CS 3100)
+## Operating System (CS 4310)
+[Abstract](https://github.com/keiakihito/PersonalProjects/tree/main/OperatingSystem)
+ - **Project** - Simulating Job Scheduler of the Operating Systems by programming the following four scheduling algorithms that we covered in the class.<br> 
+   - First-Come-First-Serve (FCFS)
+   - Shortest-Job-First (SJF)
+   - Round-Robin with Time Slice = 2 (RR-2)
+   - Round-Robin with Time Slice = 5 (PR-5)
+ <br><br>The program displays four algorithms job processes in a table format and calculates the average turnover time(ATT). It compares the mean of ATT for each job group.
+
+## Design and Analysis of Algorithms (CS 3100)
 [Abstract](https://github.com/keiakihito/PersonalProjects/tree/main/Algorighm)
  - **Project 1** - Matrix Multiplication. Implementing three different matrix multiplication methods for analysis.<br> 
    - Classiacal matrix multiplication.
