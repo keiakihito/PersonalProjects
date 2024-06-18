@@ -1,0 +1,21 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore virtual environment directory
+venv/
+
+# Ignore environment variables file
+.env
+
+# Ignore log files
+*.log
+
+# Ignore SQLite database file
+*.sqlite3
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore any .DS_Store files (common on macOS)
+.DS_Store
