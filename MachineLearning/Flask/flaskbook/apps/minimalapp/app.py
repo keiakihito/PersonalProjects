@@ -1,10 +1,23 @@
 #import  Flask
+from email_validator import validate_email, EmailNotValidError
 # g,  A global namespace for holding any data you want during the application context.
-from flask import Flask, render_template, url_for, current_app, g,request
+from flask import (
+    Flask,
+    current_app,
+    g,
+    render_template,
+    request,
+    redirect,
+    url_for,
+    flash,
+)
 
 #Instanciate Flask class
 #__name__ variable is used to determine the root path for the application
 app = Flask(__name__)
+
+#Adding SECRET_KEY
+app.config["SECRET_KEY"] = "2AZSMss3p5QPbcY2hBsJ"
 
 #Mapping function and URL
 @app.route("/")
@@ -42,6 +55,55 @@ def show_context():
             "g_connection": g.get('connection', 'Not set')
         }
         return context_info
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+@app.route("/contact/complete", methods = ["GET", "POST"])
+def contact_complete():
+    if request.method == "POST":
+        #Get value with form attribute
+        username = request.form["username"]
+        email = request.form["email"]
+        description = request.form["description"]
+
+        #Check whether input is valid or not
+        is_valid = True
+
+        if not username:
+            flash("ユーザー名は必須です")
+            is_valid = False
+
+        if not email:
+            flash("メールアドレスは必須です")
+            is_valid = False
+
+#         #FIXME email validator does not work when it is completed
+#         try:
+#             validate_email(email)
+#         except EmailNotValidError:
+#             flash("メールアドレスの形式で入力してください")
+# #             is_valid = False
+
+        if not description:
+            flash("問い合わせ内容は必須です")
+            is_valid = False
+
+        if not is_valid:
+            return redirect(url_for("contact"))
+
+
+        #TODO implement sending email later
+        #Redirect contact_complete endpoint
+        flash("問い合わせ内容はメールにて送信しました。問い合わせありがとうございます。")
+
+        #Redirect the contact endpoint
+        return redirect(url_for("contact_complete"))
+
+    return render_template("contact_complete.html")
+
+
 
 
 # Request context
