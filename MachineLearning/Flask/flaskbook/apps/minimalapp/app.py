@@ -1,3 +1,5 @@
+#import logging
+import logging
 #import  Flask
 from email_validator import validate_email, EmailNotValidError
 # g,  A global namespace for holding any data you want during the application context.
@@ -11,6 +13,10 @@ from flask import (
     url_for,
     flash,
 )
+from flask_debugtoolbar import DebugToolbarExtension
+
+
+
 
 #Instanciate Flask class
 #__name__ variable is used to determine the root path for the application
@@ -18,6 +24,22 @@ app = Flask(__name__)
 
 #Adding SECRET_KEY
 app.config["SECRET_KEY"] = "2AZSMss3p5QPbcY2hBsJ"
+#Prevent redirect
+app.config["DEBUG_TB_INTERCEPT_REDIRECTS"] = False
+
+#Set up login level
+app.logger.setLevel(logging.DEBUG)
+
+#Enable debug mode
+app.debug = True
+
+#Helpful resource, flask-debugtoolbar to check  flask routes result and SQL on the browser
+#Set app in DebugToolbarExtension
+toolbar = DebugToolbarExtension(app)
+
+
+
+
 
 #Mapping function and URL
 @app.route("/")
@@ -79,12 +101,12 @@ def contact_complete():
             flash("メールアドレスは必須です")
             is_valid = False
 
-#         #FIXME email validator does not work when it is completed
-#         try:
-#             validate_email(email)
-#         except EmailNotValidError:
-#             flash("メールアドレスの形式で入力してください")
-# #             is_valid = False
+        #FIXME email validator does not work when it is completed
+        try:
+            validate_email(email)
+        except EmailNotValidError:
+            flash("メールアドレスの形式で入力してください")
+            is_valid = False
 
         if not description:
             flash("問い合わせ内容は必須です")
@@ -147,8 +169,15 @@ with app.test_request_context("/user?updated=true"):
     print(request.args.get("updated"))
 
 
+
+
+
 #In Flask, you typically don't define a main function.
 #Instead, the Flask application instance (app) serves as the central object.
 #Run the application only if this script is executed directly
 if __name__ == "__main__":
     app.run()
+
+
+
+
