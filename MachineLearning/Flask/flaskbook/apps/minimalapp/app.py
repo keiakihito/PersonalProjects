@@ -1,5 +1,8 @@
 #import logging
 import logging
+#Get environ variable for mail class
+import os
+
 #import  Flask
 from email_validator import validate_email, EmailNotValidError
 # g,  A global namespace for holding any data you want during the application context.
@@ -14,7 +17,7 @@ from flask import (
     flash,
 )
 from flask_debugtoolbar import DebugToolbarExtension
-
+from flask_mail import Mail, Message
 
 
 
@@ -24,8 +27,20 @@ app = Flask(__name__)
 
 #Adding SECRET_KEY
 app.config["SECRET_KEY"] = "2AZSMss3p5QPbcY2hBsJ"
+
 #Prevent redirect
 app.config["DEBUG_TB_INTERCEPT_REDIRECTS"] = False
+
+#Add mail class config
+app.config["MAIL_SERVER"] = os.environ.get("MAIL_SERVER")
+app.config["MAIL_POST"] = os.environ.get("MAIL_POST", 587)
+app.config["MAIL_USE_TLS"] = os.environ.get("MAIL_USE_TLS", 'True') == 'True'
+app.config["MAIL_USERNAME"]=os.environ.get("MAIL_USERNAME")
+app.config["MAIL_PASSWORD"]=os.environ.get("MAIL_PASSWORD")
+app.config["MAIL_DEFAULT_SENDER"]=os.environ.get("MAIL_DEFAULT_SENDER")
+
+# Register flask-mail extension
+mail = Mail(app)
 
 #Set up login level
 app.logger.setLevel(logging.DEBUG)
@@ -101,7 +116,6 @@ def contact_complete():
             flash("メールアドレスは必須です")
             is_valid = False
 
-        #FIXME email validator does not work when it is completed
         try:
             validate_email(email)
         except EmailNotValidError:
@@ -115,16 +129,31 @@ def contact_complete():
         if not is_valid:
             return redirect(url_for("contact"))
 
+        #All the input are valid, then send an email.
+        send_email(
+                    email,
+                    "問い合わせありがとうございました。☺️",
+                    "contact_mail",
+                    username = username,
+                    description = description,
+        )
 
-        #TODO implement sending email later
         #Redirect contact_complete endpoint
         flash("問い合わせ内容はメールにて送信しました。問い合わせありがとうございます。")
+
 
         #Redirect the contact endpoint
         return redirect(url_for("contact_complete"))
 
     return render_template("contact_complete.html")
 
+
+def send_email(to, subject, template, ** kwargs):
+    #Function for sending email
+    msg = Message(subject, recipients = [to])
+    msg.body = render_template(template + ".txt", **kwargs)
+    msg.html = render_template(template + ".html", **kwargs)
+    mail.send(msg)
 
 
 
