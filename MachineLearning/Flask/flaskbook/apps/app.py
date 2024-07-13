@@ -1,10 +1,32 @@
+from pathlib import Path
 from flask import Flask
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
+
+#Instantiate SQLAlchemy
+db = SQLAlchemy()
 
 #Instantiate app with Create_app function
 #It makes easier to switch test  and production environment
 def create_app():
     #Instantiate Flask app
     app = Flask(__name__)
+
+    #Configure App variables
+    # Enable SQLite in SQLAlchemy
+    app.config.from_mapping(
+        SECRET_KEY = "2AZSMss3p5QPbcY2hBsJ",
+        SQLALCHEMY_DATABASE_URI =
+            f"sqlite:///{Path(__file__).parent.parent / 'local.sqlite'}",
+        SQLALCHEMY_TRACK_MODIFICATIONS = False,
+        SQLALCHEMY_ECHO = True
+    )
+
+    #Connect app and SQLAlchemy
+    db.init_app(app)
+
+    #Connect app and Migrate
+    Migrate(app, db)
 
     #Import views from crud package
     from apps.crud import views as crud_views
