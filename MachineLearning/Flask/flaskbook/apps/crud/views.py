@@ -1,9 +1,11 @@
+from apps.crud.forms import UserForm
+
 #import db
 from apps.app import db
 #Import User class
 from apps.crud.models import User
 
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, redirect, url_for
 
 # Constructor
 # Create crud app instance with Blueprint
@@ -24,3 +26,27 @@ def index():
 def sql():
     db.session.query(User).all()
     return "Check console"
+
+@crud.route("/users/new", methods = ["GET", "POST"])
+def create_user():
+    #Instatiate UserForm
+    form = UserForm()
+
+    #Validate values in form
+    if form.validate_on_submit():
+        #Create user
+        user = User(
+            username = form.username.data,
+            email = form.email.data,
+            password = form.password.data,
+        )
+
+        #Add and commit user
+        db.session.add(user)
+        db.session.commit()
+
+        #Redirect user overview
+        return redirect(url_for("crud.users"))
+
+    #Redner the form template if the form is not valid
+    return render_template("crud/create.html", form = form)

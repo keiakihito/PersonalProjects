@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, Email, length
 
 #New user and edit user form class
 #Inherit FlaskForm
-classUserForm(FlaskForm):
+class UserForm(FlaskForm):
     # Set username attribution label and validators for user form
     #StringFiels is for user input
     username = StringField(
