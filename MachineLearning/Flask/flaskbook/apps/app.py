@@ -2,9 +2,13 @@ from pathlib import Path
 from flask import Flask
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from flask_wft.csrf import CSRFProtect
 
 #Instantiate SQLAlchemy
 db = SQLAlchemy()
+
+#Instantiate CSRFProtect
+csrf = CSRFProtect()
 
 #Instantiate app with Create_app function
 #It makes easier to switch test  and production environment
@@ -19,8 +23,12 @@ def create_app():
         SQLALCHEMY_DATABASE_URI =
             f"sqlite:///{Path(__file__).parent.parent / 'local.sqlite'}",
         SQLALCHEMY_TRACK_MODIFICATIONS = False,
-        SQLALCHEMY_ECHO = True
+        SQLALCHEMY_ECHO = True,
+        WTF_CSRF_SECRET_KEY = "AuwzyszU5sugKN7KZs6f",
     )
+
+    #Connect app and csrf
+    csrf.init_app(app)
 
     #Connect app and SQLAlchemy
     db.init_app(app)
