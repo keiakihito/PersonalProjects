@@ -30,5 +30,5 @@ class UserForm(FlaskForm):
         validators = [DataRequired(message = "Password is required")]
     )
 
-    #set userform submit
+    #set user form submit
     submit = SubmitField("New Register")

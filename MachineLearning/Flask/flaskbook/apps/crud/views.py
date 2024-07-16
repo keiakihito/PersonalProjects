@@ -35,6 +35,30 @@ def users():
     users = User.query.all()
     return render_template("crud/index.html", users = users)
 
+@crud.route("users/<user_id>", methods = ["GET", "POST"])
+def edit_user(user_id):
+    #Instatiate a UserForm object in forms.py
+    #It used to collect user input for editing user details.
+    form = UserForm()
+
+    # Get user object with User model
+    #.first() retrieves the first result of the query, the user matched with the specified id.
+    user = User.query.filter_by(id =user_id).first()
+
+    #When the data comes from form, it updates database and redirect all the user list
+    #Check if the form has been submitted with a POST request
+    #Check the form data is valid according to the validators defined in UserForm.
+    if form.validate_on_submit():
+        user.username = form.username.data
+        user.email = form.email.data
+        user.password = form.password.data
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for("crud.users"))
+
+    #When the request method is GET, it returns HTML
+    return render_template("crud/edit.html", user = user, form = form)
+
 @crud.route("/users/new", methods = ["GET", "POST"])
 def create_user():
     #Instatiate UserForm
@@ -58,3 +82,11 @@ def create_user():
 
     #Redner the form template if the form is not valid
     return render_template("crud/create.html", form = form)
+
+
+@crud.route("/users/<user_id>/delete", methods = ["POST"])
+def delete_user(user_id):
+    user = User.query.filter_by(id=user_id).first()
+    db.session.delete(user)
+    db.session.commit()
+    return redirect(url_for("crud.users"))
