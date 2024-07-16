@@ -1,3 +1,11 @@
-.crud{
-    font-style: italic;
+table{
+    /*Show single line with overlapped lines*/
+    border-collapse: collapse;
+}
+
+table,
+th,
+td{
+    /*Adjust color 1px line for table border*/
+    border: 1px solid #c0c0c0;
 }

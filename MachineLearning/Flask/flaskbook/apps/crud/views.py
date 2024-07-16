@@ -27,6 +27,14 @@ def sql():
     db.session.query(User).all()
     return "Check console"
 
+@crud.route("/users")
+def users():
+    #Get all the user info
+    #Retrieves all records from the users table in the database to fetch user objects
+    #Make a list of user objects.
+    users = User.query.all()
+    return render_template("crud/index.html", users = users)
+
 @crud.route("/users/new", methods = ["GET", "POST"])
 def create_user():
     #Instatiate UserForm
