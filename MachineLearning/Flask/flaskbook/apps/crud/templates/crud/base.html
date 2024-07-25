@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+
+        <!-- Implement title with inheritance -->
+        <!-- It is like a abstract class in OOP-->
+        <title>{% block title %}{% endblock %}</title>
+        <link
+                rel="stylesheet"
+                href="{{ url_for('crud.static', filename='style.css') }}"
+        />
+    </head>
+
+    <body>
+        <!-- Implement content with inheritance-->
+        {% block content %}{% endblock %}
+    </body>
+</html>
+

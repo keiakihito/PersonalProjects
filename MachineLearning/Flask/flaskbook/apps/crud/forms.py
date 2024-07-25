@@ -2,6 +2,8 @@ from flask_wtf import FlaskForm
 from wtforms import PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired, Email, length
 
+
+
 #New user and edit user form class
 #Inherit FlaskForm
 class UserForm(FlaskForm):

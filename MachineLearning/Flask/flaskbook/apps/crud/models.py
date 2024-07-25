@@ -1,12 +1,15 @@
 from datetime import datetime
+from werkzeug.security import generate_password_hash
+from flask_sqlalchemy import SQLAlchemy
 
-from apps.app import db
-from werkzeug.security import   generate_password_hash
+
+db = SQLAlchemy()
 
 #Define User class which inherits db.Model
 class User(db.Model):
     #Choose the Table Name
     __tablename__ = "users"
+
     #Column definition
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String, index = True)

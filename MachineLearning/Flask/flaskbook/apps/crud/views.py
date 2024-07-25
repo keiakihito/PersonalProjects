@@ -90,3 +90,14 @@ def delete_user(user_id):
     db.session.delete(user)
     db.session.commit()
     return redirect(url_for("crud.users"))
+
+
+@crud.route("/test-db")
+def test_db():
+    try:
+        #Perform a simple database query
+        users = User.query.all()
+        return f"successful commected to the database. Found {len(users)} users."
+
+    except Exception as e:
+        return f"Error connecting to the database: {str(e)}"
