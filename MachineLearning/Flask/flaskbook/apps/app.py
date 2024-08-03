@@ -5,9 +5,11 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
 from dotenv import load_dotenv
-from apps.crud.models import db
+# from apps.crud.models import db
 from apps.config import config
 from flask_login import LoginManager
+
+db=SQLAlchemy()
 
 # Load environment variables from a .env file
 load_dotenv()
@@ -60,7 +62,7 @@ def create_app(config_key = None):
     #Connect login_manager with app
     login_manager.init_app(app)
 
-    from apps.crud.models import User # Import here to avoid circular 
+    from apps.crud.models import User # Import here to avoid circular
 
     # Import views from crud package
     from apps.crud import views as crud_views

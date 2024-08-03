@@ -1,11 +1,11 @@
 from datetime import datetime
-# from apps.app import login_manager
+from apps.app import login_manager, db
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 
 
-db = SQLAlchemy()
+# db = SQLAlchemy()
 
 #Define User class which inherits db.Model
 class User(db.Model,  UserMixin):

@@ -1,11 +1,12 @@
-from apps.crud.forms import UserForm
+
 
 #import db
-from apps.app import db
 #Import User class
+from apps.app import db
+from apps.crud.forms import UserForm
 from apps.crud.models import User
-
 from flask import Blueprint, render_template, redirect, url_for
+from flask_login import login_required
 
 # Constructor
 # Create crud app instance with Blueprint

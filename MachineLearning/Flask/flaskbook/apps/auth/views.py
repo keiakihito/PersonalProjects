@@ -23,9 +23,9 @@ def index():
 def signup():
     #Instantiate SignUpForm
     form = SignUpForm()
-    if forms.validate_on_submit():
+    if form.validate_on_submit():
         user = User(
-            username = form.username.data
+            username = form.username.data,
             email = form.email.data,
             password = form.password.data,
         )
@@ -44,8 +44,8 @@ def signup():
 
         #GET parameter has next key, but no value => Back to user page
         next_ = request.args.get("next")
-        if next_ is None or not next_.stratswith("/"):
+        if next_ is None or not next_.startswith("/"):
             next_ = url_for("crud.users")
         return redirect(next_)
 
-   return render_template("auth/signup.html", form = form)
+    return render_template("auth/signup.html", form = form)
