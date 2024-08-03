@@ -16,18 +16,22 @@ crud = Blueprint(
     static_folder = "static",
 )
 
+#Need to add crud/ as prefix like http://127.0.0.1:5000/crud/users
 # Create index endpoint and return index.html
 @crud.route("/")
+@login_required # Set up all the endpoint with login required
 def index():
     return render_template("crud/index.html")
 
 
 @crud.route("/sql")
+@login_required
 def sql():
     db.session.query(User).all()
     return "Check console"
 
 @crud.route("/users")
+@login_required
 def users():
     #Get all the user info
     #Retrieves all records from the users table in the database to fetch user objects
@@ -36,6 +40,7 @@ def users():
     return render_template("crud/index.html", users = users)
 
 @crud.route("users/<user_id>", methods = ["GET", "POST"])
+@login_required
 def edit_user(user_id):
     #Instatiate a UserForm object in forms.py
     #It used to collect user input for editing user details.
@@ -60,6 +65,7 @@ def edit_user(user_id):
     return render_template("crud/edit.html", user = user, form = form)
 
 @crud.route("/users/new", methods = ["GET", "POST"])
+@login_required
 def create_user():
     #Instatiate UserForm
     form = UserForm()
@@ -85,6 +91,7 @@ def create_user():
 
 
 @crud.route("/users/<user_id>/delete", methods = ["POST"])
+@login_required
 def delete_user(user_id):
     user = User.query.filter_by(id=user_id).first()
     db.session.delete(user)
